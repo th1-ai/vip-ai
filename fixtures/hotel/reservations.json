@@ -1,0 +1,141 @@
+[
+  {
+    "id": "res-ashby-01",
+    "external_ref": "EXT-1001",
+    "status": "confirmed",
+    "check_in": "2026-09-12",
+    "check_out": "2026-09-16",
+    "room_type_id": "meridian-suite",
+    "room_type_name": "Meridian Suite",
+    "room_id": "301",
+    "adults": 2,
+    "children": 0,
+    "source": "direct",
+    "total": 2400.0,
+    "balance": 0.0,
+    "currency": "USD",
+    "guest": {
+      "id": "g-ashby", "first_name": "Eleanor", "last_name": "Ashby",
+      "email": "eleanor.ashby@example.com", "phone": "+1 555 0101", "country": "US",
+      "language": "en", "vip": true,
+      "notes": "Long-time regulars, always request the corner suite away from the lift.",
+      "stays": 11, "tier": "Platinum"
+    },
+    "notes": "Celebrating their 40th anniversary this stay.",
+    "preferences": {
+      "room": "Corner suite, high floor, away from the lift",
+      "pet": "Dachshund travels with them - water bowl by the terrace door",
+      "drinks": "Tawny port after dinner - George",
+      "dining": "Late seating, window table",
+      "occasion": "40th anniversary - daughter is sending flowers",
+      "flowers_from": "Their daughter"
+    },
+    "key_dates": [
+      {"type": "anniversary", "date": "2026-09-18", "label": "40th anniversary"}
+    ]
+  },
+  {
+    "id": "res-kapoor-01",
+    "external_ref": "EXT-1002",
+    "status": "confirmed",
+    "check_in": "2026-09-10",
+    "check_out": "2026-09-13",
+    "room_type_id": "garden-suite",
+    "room_type_name": "Garden Suite",
+    "room_id": "212",
+    "adults": 1,
+    "children": 0,
+    "source": "direct",
+    "total": 1350.0,
+    "balance": 0.0,
+    "currency": "USD",
+    "guest": {
+      "id": "g-kapoor", "first_name": "Priya", "last_name": "Kapoor",
+      "email": "priya.kapoor@example.com", "phone": "+1 555 0102", "country": "GB",
+      "language": "en", "vip": true,
+      "notes": "Guest has asked we keep visits private - no publicity, ever.",
+      "stays": 5
+    },
+    "notes": "",
+    "preferences": {
+      "room": "Garden-view suite, top floor",
+      "dining": "Private dining room only, never the main restaurant"
+    }
+  },
+  {
+    "id": "res-bellini-01",
+    "external_ref": "EXT-1003",
+    "status": "confirmed",
+    "check_in": "2026-09-11",
+    "check_out": "2026-09-14",
+    "room_type_id": "classic-double",
+    "room_type_name": "Classic Double",
+    "room_id": "104",
+    "adults": 2,
+    "children": 0,
+    "source": "ota",
+    "total": 900.0,
+    "balance": 150.0,
+    "currency": "USD",
+    "guest": {
+      "id": "g-bellini", "first_name": "Marco", "last_name": "Bellini",
+      "email": "marco.bellini@example.com", "phone": "+1 555 0103", "country": "IT",
+      "language": "it", "vip": true, "notes": "", "stays": 4
+    },
+    "notes": "",
+    "preferences": {
+      "drinks": "Negroni, extra bitter",
+      "diet": "Vegetarian, no exceptions"
+    }
+  },
+  {
+    "id": "res-whitfield-01",
+    "external_ref": "EXT-1004",
+    "status": "confirmed",
+    "check_in": "2026-09-12",
+    "check_out": "2026-09-14",
+    "room_type_id": "classic-double",
+    "room_type_name": "Classic Double",
+    "room_id": "108",
+    "adults": 1,
+    "children": 0,
+    "source": "direct",
+    "total": 600.0,
+    "balance": 0.0,
+    "currency": "USD",
+    "guest": {
+      "id": "g-whitfield", "first_name": "Sam", "last_name": "Whitfield",
+      "email": "sam.whitfield@example.com", "phone": "+1 555 0104", "country": "US",
+      "language": "en", "vip": false, "notes": "First stay with us.", "stays": 1
+    },
+    "notes": "",
+    "preferences": {
+      "dining": "Window table if available"
+    }
+  },
+  {
+    "id": "res-haddad-01",
+    "external_ref": "EXT-1005",
+    "status": "confirmed",
+    "check_in": "2026-09-25",
+    "check_out": "2026-09-29",
+    "room_type_id": "meridian-suite",
+    "room_type_name": "Meridian Suite",
+    "room_id": "302",
+    "adults": 2,
+    "children": 1,
+    "source": "direct",
+    "total": 3200.0,
+    "balance": 0.0,
+    "currency": "USD",
+    "guest": {
+      "id": "g-haddad", "first_name": "Noor", "last_name": "Haddad",
+      "email": "noor.haddad@example.com", "phone": "+1 555 0105", "country": "AE",
+      "language": "en", "vip": true, "notes": "Books far ahead every year.", "stays": 9
+    },
+    "notes": "Outside the demo's lookahead window on purpose - see tests/test_vip_engine.py.",
+    "preferences": {
+      "room": "High floor, city view"
+    }
+  }
+]

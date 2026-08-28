@@ -1,0 +1,79 @@
+# ---------------------------------------------------------------------------
+# agent.yaml - VIP AI's own knobs. `make setup` copies this to
+# config/agent.yaml; edit that copy, this example stays as a clean reference.
+#
+# The Insider does one thing every morning: sync VIP profiles from your PMS
+# and queue a brief for every VIP arriving inside the lookahead window. The
+# Scribe (handwritten letters) is a second, optional track - off by default,
+# see docs/sub-agents.md for why turning it on is a real decision, not just
+# a flag flip. See docs/how-it-works.md for the full loop.
+# ---------------------------------------------------------------------------
+
+# --- Which systems this agent actually uses through core/adapters ----------
+# PMS (upcoming arrivals and guest history, plus the preference note written
+# back by `tools/vip.py capture`) and Messaging (the guarded `notify_staff`
+# that gets an approved brief to the duty team). Email is left out on
+# purpose: no brief or letter is ever sent to a guest's inbox - a letter's
+# "send" is a print-ready file in `data/exports/letters/` - so
+# systems.email.adapter stays mock forever and must never trigger the
+# "SAMPLE DATA" warning. Listing pms/messaging still warns you correctly if
+# THOSE are still on mock once you are running for real. See
+# docs/integrations.md "What VIP AI actually uses".
+systems_used: [pms, messaging]
+
+# Tier thresholds, by stays on file. Below gold_min_stays is Silver - the
+# tier `rules.vip_first` deliberately does not prioritise. Edit these to
+# match how your own property already talks about its regulars.
+tiers:
+  platinum_min_stays: 8
+  gold_min_stays: 3
+
+# How far ahead to look for VIP arrivals when building briefs. The roster
+# describes the ideal as "D-2" (two days before arrival); this window is
+# wider than one day on purpose, so a VIP arriving today, tomorrow, or in
+# `lookahead_days` all get a current brief - see docs/how-it-works.md.
+brief:
+  lookahead_days: 2
+
+# The two switches the demo this repo is built from calls `concierge_rules`.
+rules:
+  brief_daily: true    # wording only - see docs/how-it-works.md decision #4;
+                        # the real schedule is config/agent.yaml: schedule.main
+  vip_first: true       # brief text notes VIPs (not Silver) as worked first;
+                         # see docs/how-it-works.md decision #9 for the limit
+
+# The preference keys route to whichever desk actually acts on them. Add
+# your own keys here if your property tracks something the defaults miss -
+# anything not listed lands in front_office (docs/how-it-works.md decision #8).
+sections:
+  housekeeping: [room, pet, pets, flowers, amenities, turndown, wellness]
+  fnb: [dining, drinks, food, diet, allergies]
+  front_office: [occasion, transport, arrival, privacy]
+
+# Where the brief goes once a human approves it: messaging.notify_staff is
+# the guarded send; sheets.append (this sheet name) is the follow-on export
+# for whatever reads a shared sheet as "the housekeeping app" - see
+# docs/integrations.md.
+review_notify:
+  duty_team_sheet: "vip_briefs"
+
+# Handwritten Letter AI - "The Scribe". Off by default: VIP AI's research +
+# memory + brief promise stands on its own without it. See docs/sub-agents.md
+# before turning this on - a physical letter is a real cost and a real
+# mailing, not a free extra.
+subagents:
+  handwritten_letter:
+    enabled: false
+    lookahead_days: 14        # how far ahead to watch key_dates for a due letter
+
+# How often `tools/run.py --watch` polls, and what `make schedule` prints by
+# default. `make schedule ARGS="--all"` prints one snippet per entry below;
+# see scheduler/ for cron/launchd/systemd examples.
+schedule:
+  main:
+    command: "tools/run.py --once"
+    cadence: "0 6 * * *"          # every morning - see decision #4 above
+  letters_scan:
+    command: "tools/letters.py scan"
+    cadence: "0 7 * * *"          # after the morning brief; no-op while disabled
+poll_seconds: 3600

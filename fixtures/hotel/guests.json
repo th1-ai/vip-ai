@@ -1,0 +1,63 @@
+[
+  {
+    "id": "g-ashby",
+    "first_name": "Eleanor",
+    "last_name": "Ashby",
+    "email": "eleanor.ashby@example.com",
+    "phone": "+1 555 0101",
+    "country": "US",
+    "language": "en",
+    "vip": true,
+    "notes": "Long-time regulars, always request the corner suite away from the lift.",
+    "stays": 11,
+    "tier": "Platinum"
+  },
+  {
+    "id": "g-kapoor",
+    "first_name": "Priya",
+    "last_name": "Kapoor",
+    "email": "priya.kapoor@example.com",
+    "phone": "+1 555 0102",
+    "country": "GB",
+    "language": "en",
+    "vip": true,
+    "notes": "Guest has asked we keep visits private - no publicity, ever.",
+    "stays": 5
+  },
+  {
+    "id": "g-bellini",
+    "first_name": "Marco",
+    "last_name": "Bellini",
+    "email": "marco.bellini@example.com",
+    "phone": "+1 555 0103",
+    "country": "IT",
+    "language": "it",
+    "vip": true,
+    "notes": "",
+    "stays": 4
+  },
+  {
+    "id": "g-whitfield",
+    "first_name": "Sam",
+    "last_name": "Whitfield",
+    "email": "sam.whitfield@example.com",
+    "phone": "+1 555 0104",
+    "country": "US",
+    "language": "en",
+    "vip": false,
+    "notes": "First stay with us.",
+    "stays": 1
+  },
+  {
+    "id": "g-haddad",
+    "first_name": "Noor",
+    "last_name": "Haddad",
+    "email": "noor.haddad@example.com",
+    "phone": "+1 555 0105",
+    "country": "AE",
+    "language": "en",
+    "vip": true,
+    "notes": "Books far ahead every year.",
+    "stays": 9
+  }
+]

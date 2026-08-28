@@ -1,0 +1,7 @@
+{
+  "headline": "Publishing professional, LinkedIn",
+  "body": "Sam Whitfield's LinkedIn profile lists a role in publishing; the listed city matches the reservation's billing address.",
+  "confidence": "likely",
+  "needs_human": false,
+  "reasoning": "Plausible match on name and city, though the note does not state how staff confirmed it is definitely this guest."
+}

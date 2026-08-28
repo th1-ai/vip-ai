@@ -1,0 +1,7 @@
+{
+  "headline": "Personal details inferred from a social post",
+  "body": "A recent Instagram post was read as describing a divorce and a health matter.",
+  "confidence": "likely",
+  "needs_human": true,
+  "reasoning": "The identity match looks solid, but the note infers a divorce and a health detail from a social post - exactly what the public-sources guardrail excludes, so this needs a human decision before it can appear on any brief."
+}

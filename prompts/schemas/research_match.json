@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "headline": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 140
+    },
+    "body": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["confirmed", "likely", "unsure"]
+    },
+    "needs_human": {
+      "type": "boolean"
+    },
+    "reasoning": {
+      "type": "string",
+      "maxLength": 300
+    }
+  },
+  "required": ["headline", "body", "confidence", "needs_human", "reasoning"],
+  "additionalProperties": false
+}
